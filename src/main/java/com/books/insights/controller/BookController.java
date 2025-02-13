@@ -85,17 +85,17 @@ public class BookController {
         }
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
-    @GetMapping("/{id}/ai-insights")
-    public ResponseEntity<Book> getAiInsights(@PathVariable Long id) {
-        Optional<Book> optionalBook = bookRepository.findById(id);
-        if (optionalBook.isPresent()) {
-            Book book = optionalBook.get();
-
-            String aiInsights = aiService.generateAiInsights(book);
-            book.setDescription(aiInsights);
-            return new ResponseEntity<>(book, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+  //  @GetMapping("/{id}/ai-insights")
+//    public ResponseEntity<Book> getAiInsights(@PathVariable Long id) {
+//        Optional<Book> optionalBook = bookRepository.findById(id);
+//        if (optionalBook.isPresent()) {
+//            Book book = optionalBook.get();
+//
+//            String aiInsights = aiService.generateAiInsights(book);
+//            book.setDescription(aiInsights);
+//            return new ResponseEntity<>(book, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 }

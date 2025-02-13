@@ -16,14 +16,12 @@ import java.util.Map;
 @Service
 public class AiService {
 
-    @Value("${ai.api.url}")
-    private String aiApiUrl;
 
-    @Value("${ai.api.key}")
-    private String aiApiKey;
+@Value("${openai.key}")
+String aiApiKey;
 
-    private final RestTemplate restTemplate = new RestTemplate();
-
+    @Value("${openai.url}")
+    String aiApiUrl;
     public String generateAiInsights(Book book) {
         String prompt = "Generate a tagline for the book: " + book.getTitle() + " by " + book.getAuthor();
 
@@ -55,4 +53,8 @@ public class AiService {
 
         return "No response from AI";
     }
+
+    private final RestTemplate restTemplate = new RestTemplate();
+
+
 }
